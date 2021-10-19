@@ -1,0 +1,13 @@
+*.json
+*.pak
+*.dll
+*.log
+*.txt
+*.bin
+*.exe
+*.ico
+*.dat
+webcache/
+php/
+locales/
+www/database/database.db

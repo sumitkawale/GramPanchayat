@@ -1,0 +1,1 @@
+<script src="../resources/mdb/js/mdb.min.js"></script>
