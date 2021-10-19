@@ -198,7 +198,7 @@ if (isset($_GET['id'])) {
         <!-- first Block (fblock) -->
 
         <div class="fblock row">
-            <div class="fblock1 col-3" style="font-size: 13px;">
+            <div class="fblock1 col-3 font-weight-bold" style="font-size: 13px;">
                 क्रमांक. 1<br>
                 No. 1<br>
                 <img src="../media/maharashtraSarkarLogo.png" height="80">
@@ -212,11 +212,11 @@ if (isset($_GET['id'])) {
                 <p class="marginp">आरोग्य विभाग</p>
                 <p>DEPARTMENT OF HEALTH</p>
                 <p style="margin: 20px 0 20px;">GRAMPANCHAYAT PALASDEO</p>
-                <h5 class="marginp">जन्म प्रमाणपत्र </h5>
-                <p style="font-weight: 500;">BIRTH CERTIFICATE</p>
+                <h5 class="marginp font-weight-bold">जन्म प्रमाणपत्र </h5>
+                <p class="font-weight-bold" style="font-weight: 500;">BIRTH CERTIFICATE</p>
             </div>
 
-            <div class="fblock3 col-3" style="font-size: 13px;">
+            <div class="fblock3 col-3 font-weight-bold" style="font-size: 13px;">
                 फोर्म-५<br>
                 FORM-5<br>
                 <img src="../media/birthAndDeathLogo.jpg" height="70">
@@ -244,7 +244,7 @@ if (isset($_GET['id'])) {
 
         <!-- MAIN BLOCK THIRD BLOCK (tblock) -->
 
-        <div class="tblock row" style="margin-top: 30px;">
+        <div class="tblock row font-weight-bold" style="margin-top: 30px;">
             <div class="tdata1 col-7 ">
                 <p>नाव / NAME: <span><?php echo $name ?></span>/<span class="hinditext textNormal"><?php echo $name_m ?></span></p>
 
@@ -332,7 +332,7 @@ if (isset($_GET['id'])) {
                     ENSURE REGISTRATION OF EVERY BIRTH AND DEATH*</p>
             </center>
         </div>
-
+    </div>
 </body>
 
 </html>

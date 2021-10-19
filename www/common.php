@@ -18,7 +18,7 @@ function showErr()
         let aadharSpans = document.getElementsByClassName('hideAadhar')
 
         for (let i = 0; i < aadharSpans.length; i++) {
-            aadharSpans[i].innerHTML = "××××××××" + aadharSpans[i].innerHTML.substring(8)
+            // aadharSpans[i].innerHTML = "××××××××" + aadharSpans[i].innerHTML.substring(8)
         }
     }
 
