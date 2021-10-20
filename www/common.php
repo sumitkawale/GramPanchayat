@@ -22,6 +22,14 @@ function showErr()
         }
     }
 
+    function dateFix() {
+        let date = document.querySelectorAll(".date");
+        date.forEach((element) => {
+            let text = element.innerHTML.split(" ∕ ");
+            element.innerHTML = text[2] + " ∕ " + text[1] + " ∕ " + text[0]
+        })
+    }
+
     function validate(form, selectBox) {
         let aadharInputs = document.getElementsByClassName("aadhar-input");
         let status = true;

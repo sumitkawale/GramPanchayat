@@ -88,7 +88,7 @@ include '../resources/cssLinks.php';
 				</div>
 			</div>
 
-			<div class="row mb-4">
+			<!-- <div class="row mb-4">
 				<div class="col">
 					<div class="form-outline">
 						<input required type="number" class="form-control" id="husbandAge" name="husbandAge" />
@@ -100,14 +100,9 @@ include '../resources/cssLinks.php';
 						<input required type="number" class="form-control" id="wifeAge" name="wifeAge" />
 						<label class="form-label" for="wifeAge">Wife Age</label>
 					</div>
-				</div>
-				<div class="col">
-					<div class="input-group">
-						<span class="input-group-text" id="dom">Marriage Date</span>
-						<input required type="date" class="form-control" aria-label="dom" aria-describedby="dom" id="dateOfMarriage" name="dateOfMarriage" />
-					</div>
-				</div>
-			</div>
+				</div> 
+				
+			</div> -->
 
 			<div class="row mb-4">
 				<div class="col">
@@ -126,6 +121,7 @@ include '../resources/cssLinks.php';
 
 			</div>
 
+		<!-- 
 			<div class="row mb-4">
 				<div class="col">
 					<div class="form-outline">
@@ -139,7 +135,7 @@ include '../resources/cssLinks.php';
 						<label class="form-label hinditext" for="husbandReligion_m">वराचा धर्म</label>
 					</div>
 				</div>
-			</div>
+			</div> 
 
 			<div class="row mb-4">
 				<div class="col">
@@ -154,7 +150,7 @@ include '../resources/cssLinks.php';
 						<label class="form-label hinditext" for="wifeReligion_m">वधूचा धर्म</label>
 					</div>
 				</div>
-			</div>
+			</div> 
 
 			<div class="row mb-4">
 				<div class="col">
@@ -169,7 +165,7 @@ include '../resources/cssLinks.php';
 						<label class="form-label hinditext" for="husbandNationality_m">वराचे राष्ट्रीयत्व</label>
 					</div>
 				</div>
-			</div>
+			</div> 
 
 
 			<div class="row mb-4">
@@ -185,9 +181,9 @@ include '../resources/cssLinks.php';
 						<label class="form-label hinditext" for="wifeNationality_m">वधूचे राष्ट्रीयत्व</label>
 					</div>
 				</div>
-			</div>
+			</div> 
 
-			<div class="row mb-4">
+			 <div class="row mb-4">
 				<div class="col">
 					<div class="form-outline">
 						<input required type="text" class="form-control" id="husbandFatherName" name="husbandFatherName" />
@@ -200,9 +196,9 @@ include '../resources/cssLinks.php';
 						<label class="form-label hinditext" for="husbandFatherName_m">वराच्या वडिलांचे नाव</label>
 					</div>
 				</div>
-			</div>
+			</div> 
 
-			<div class="row mb-4">
+			 <div class="row mb-4">
 				<div class="col">
 					<div class="form-outline">
 						<input required type="text" class="form-control" id="wifeFatherName" name="wifeFatherName" />
@@ -215,10 +211,10 @@ include '../resources/cssLinks.php';
 						<label class="form-label hinditext" for="wifeFatherName_m">वधूच्या वडिलांचे नाव</label>
 					</div>
 				</div>
-			</div>
+			</div> 
 
 
-			<div class="row mb-4">
+			 <div class="row mb-4">
 				<div class="col">
 					<select required onchange="checkOther(this)" class="form-select" aria-label="Default select example" id="husbandAddress" name="husbandAddress" style="opacity: 0.8; font-size: 14px; ">
 						<option data-warning="PLEASE SELECT ADDRESS OF HUSBAND" selected value="-1">Husband Address</option>
@@ -229,7 +225,7 @@ include '../resources/cssLinks.php';
 						<option value="other" id="otherOption">Other</option>
 					</select>
 				</div>
-			</div>
+			</div> 
 
 			<div id="display" style="display: none;" class="mb-4">
 				<div class="form-outline mb-4">
@@ -241,7 +237,7 @@ include '../resources/cssLinks.php';
 					<label class="form-label" for="husbandAddressOther_m">वराचा पत्ता</label>
 				</div>
 			</div>
-			<script>
+			 <script>
 				function checkOther(select) {
 					var selValue = select.value;
 					select.style.color = "black";
@@ -267,15 +263,36 @@ include '../resources/cssLinks.php';
 						document.getElementById('otherOption').innerHTML = "Other";
 					}
 				}
-			</script>
-			<div class="form-outline mb-4">
-				<textarea required class="form-control" rows="1" id="wifeAddress" name="wifeAddress"></textarea>
-				<label class="form-label" for="wifeAddress">Wife Address</label>
+			</script> 
+		-->
+			<div class="row mb-4">
+				<div class="form-outline col">
+					<div class="form-outline">
+						<textarea required class="form-control" rows="1" id="husbandAddress" name="husbandAddress"></textarea>
+						<label class="form-label" for="husbandAddress">Husband Address</label>
+					</div>
+				</div>
+				<div class="form-outline col">
+					<div class="form-outline">
+						<textarea required class="form-control hinditext" rows="1" id="husbandAddress_m" name="husbandAddress_m"></textarea>
+						<label class="form-label hinditext" for="husbandAddress_m">वराचा पत्ता</label>
+					</div>
+				</div>
 			</div>
+			<div class="row mb-4">
+				<div class="form-outline col">
+					<div class="form-outline">
+						<textarea required class="form-control" rows="1" id="wifeAddress" name="wifeAddress"></textarea>
+						<label class="form-label" for="wifeAddress">Wife Address</label>
+					</div>
+				</div>
 
-			<div class="form-outline mb-4">
-				<textarea required class="form-control hinditext" rows="1" id="wifeAddress_m" name="wifeAddress_m"></textarea>
-				<label class="form-label hinditext" for="wifeAddress_m">वधूचा पत्ता</label>
+				<div class="form-outline col">
+					<div class="form-outline">
+						<textarea required class="form-control hinditext" rows="1" id="wifeAddress_m" name="wifeAddress_m"></textarea>
+						<label class="form-label hinditext" for="wifeAddress_m">वधूचा पत्ता</label>
+					</div>
+				</div>
 			</div>
 
 			<div class="row mb-4">
@@ -294,7 +311,13 @@ include '../resources/cssLinks.php';
 			</div>
 
 			<div class="row mb-4">
-				<div class="col-6">
+				<div class="col">
+					<div class="input-group">
+						<span class="input-group-text" id="dom">Marriage Date</span>
+						<input required type="date" class="form-control" aria-label="dom" aria-describedby="dom" id="dateOfMarriage" name="dateOfMarriage" />
+					</div>
+				</div>
+				<div class="col">
 					<div class="input-group">
 						<span class="input-group-text" style="opacity: 0.8; font-size: 14px; " id="dateOfReg">Registration Date</span>
 						<input type="date" class="form-control" aria-label="dateOfReg" aria-describedby="dateOfReg" name="dateOfReg" />

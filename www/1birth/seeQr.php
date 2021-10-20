@@ -39,12 +39,9 @@ include '../resources/cssLinks.php';
                         <option value="nameOfFather_m">वडिलांचे नाव </option>
                         <option value="nameOfMother">Mother Name </option>
                         <option value="nameOfMother_m">आईचे नाव </option>
-                        <option value="fatherAadharNo">Father's Aadhaar No. </option>
-                        <option value="motherAadharNo">Mother's Aadhaar No. </option>
                         <option value="addressDuringBirth">Parents Address During Birth </option>
                         <option value="addressDuringBirth_m">मुलाच्या जन्मावेळी पालकांचा पत्ता </option>
                         <option value="permanentAddressOfParents">Parents permenant Address </option>
-                        <option value="dateOfRegistration">Reg. Date </option>
                     </select>
                 </div>
 
@@ -93,9 +90,8 @@ include '../resources/cssLinks.php';
 <script src="../resources/bootstrap/js/jquery.js"></script>
 <?php include '../resources/jsScript.php'; ?>
 <script>
-
     let selectRow = (row, id) => {
-        
+
         $.ajax({
             url: "./ajax/generateQR.php",
             type: "POST",
@@ -105,12 +101,12 @@ include '../resources/cssLinks.php';
             success: function(data) {
                 $('#modal').html(data);
                 var qr = document.getElementById('qrimg');
-                qr.src = "../qrImage/"+id+"qrImg.png";
+                qr.src = "../qrImage/" + id + "qrImg.png";
                 //setTimeout(10, deleteQR(id));
                 //setTimeout(10000, deleteQR(id));
                 //deleteQR(id);
             }
-        });                 
+        });
     };
     window.onload = () => {
         call();

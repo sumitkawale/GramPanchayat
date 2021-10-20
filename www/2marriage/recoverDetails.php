@@ -54,30 +54,19 @@ include '../resources/cssLinks.php';
 
                 <div class="col-md-3">
                     <select class="form-select" aria-label="Default select example" id="type" name="permanentAddressOfDeceased" style="opacity: 0.8; font-size: 14px; ">
-                        <option value="id">ID</option>
+                    <option value="id">ID</option>
                         <option selected value="husbandName">Husband Name </option>
                         <option value="husbandName_m">वराचे नाव </option>
                         <option value="wifeName">Wife Name </option>
                         <option value="wifeName_m">वधूचे नाव </option>
-                        <option value="husbandAge">Husband Age </option>
-                        <option value="wifeAge">Wife Age </option>
-                        <option value="husbandReligion">Husband Religion </option>
-                        <option value="husbandReligion_m">वराचा धर्म </option>
-                        <option value="wifeReligion">Wife Religion </option>
-                        <option value="wifeReligion_m">वधूचा धर्म </option>
-                        <option value="husbandNationality">Husband Nationality </option>
-                        <option value="wifeNationality">Wife Nationality </option>
-                        <option value="husbandFatherName">Husband Father Name </option>
-                        <option value="husbandFatherName_m">वराच्या वडिलांचे नाव </option>
-                        <option value="wifeFatherName">Wife Father Name </option>
-                        <option value="wifeFatherName_m">वधूच्या वडिलांचे नाव </option>
                         <option value="husbandAddress">Husband Address </option>
+                        <option value="wifeAadharNo">Wife Aadhar</option>
+                        <option value="husbandAadharNo">Husband Aadhar</option>
                         <option value="wifeAddress">Wife Address </option>
                         <option value="wifeAddress_m">वधूचा पत्ता </option>
                         <option value="dateOfMarriage">Date Of Marriage </option>
                         <option value="placeOfMarriage">Place Of Marriage </option>
                         <option value="placeOfMarriage_m">विवाहाचे ठिकाण </option>
-                        <option value="dateOfRegistration">Reg. Date </option>
                     </select>
                 </div>
 

@@ -2,6 +2,13 @@
 session_start();
 
 $_SESSION["printSuccess"] = 1;
+function makeMarathiDateText($stringDate)
+{
+    $stringDate = str_replace("/", " ∕ ", $stringDate);
+    $stringDate = str_replace(":", "∶", $stringDate);
+    $stringDate = str_replace("-", " ∕ ", $stringDate);
+    return $stringDate;
+}
 require "../common.php";
 class numbertowordconvertsconver
 {
@@ -187,12 +194,10 @@ if (isset($_GET['id'])) {
 
         <head>
             <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <meta http-equiv="X-UA-Compatible" content="ie=edge">
-            <meta name="Description" content="Enter your description here" />
             <link rel="stylesheet" href="../resources/mdb/css/bootstrap.min.css">
             <title>Death Certificate</title>
-
             <style>
                 * {
                     margin: 0;
@@ -202,245 +207,244 @@ if (isset($_GET['id'])) {
 
                 body {
                     text-transform: capitalize;
-                    font-family: Times, 'Times New Roman';
+                    font-weight: 500;
                 }
 
-                .marginp {
+                .main {
+                    width: 100%;
+                    height: 1500px;
+                    border: 2px solid black;
+                }
+
+
+                .top-header p {
                     margin: 0;
                 }
 
-                .fblock1 {
-                    display: block;
-                    padding: 75px;
-                    /* border: 2px solid red; */
-                }
-
-                .fblock2 {
-                    margin-top: 15px;
-                    display: block;
-                    margin-left: auto;
-                    margin-right: auto;
-                    text-align: center;
-                }
-
-                .fblock3 {
-                    padding: 75px;
-                }
-
-                .sign {
-                    display: block;
-                    margin-left: 0;
-                    margin-right: 10px;
-                    text-align: center;
-                    font-weight: 600;
-                }
-
-                .textNormal {
-                    text-transform: none;
+                .header .title {
                     font-size: 1.3rem;
+                    font-weight: 600;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    height: 100%;
+                    align-items: center;
                 }
 
+                .bottom-header .title {
+                    font-size: 1.7rem;
+                    text-decoration: underline;
+                    font-weight: 1000;
+                    text-align: center;
+                    border-top: 2px solid #333333;
+                    border-bottom: 2px solid #333333;
+                    padding: 1rem;
+                }
+
+                .definition {
+                    font-size: 1.1rem;
+                }
+
+
+                .body-data p {
+                    margin: 0;
+                }
+
+                p {
+                    margin: 0 !important;
+                }
+
+                .body-data p:nth-child(even) {
+                    margin-bottom: 1.2rem !important;
+                }
+
+                .body-data p:last-child {
+                    margin: 0 !important;
+                }
+
+                .footer {
+                    align-items: center;
+                }
+
+                .seal {
+                    border: 2px solid rgba(0, 0, 0, 0.2);
+                    padding: 1.2rem .5rem;
+                    color: #000000cc;
+                }
+
+                .data {
+                    font-weight: bolder;
+                    font-size: 1.1rem;
+                }
+
+                .highlight {
+                    background-color: orange;
+                }
+            </style>
+            <style>
                 @font-face {
-                    font-family: kruti dev;
+                    font-family: marathi;
                     src: url('../resources/Kruti_Dev_010.ttf') format("truetype");
                 }
 
-                .hinditext {
-                    font-family: kruti dev;
-                    font-size: auto;
+                @font-face {
+                    font-family: marathiNumber;
+                    src: url('../resources/Shivaji01.ttf') format("truetype");
+                }
+
+                .marathi {
+                    font-family: "marathi";
+                    text-transform: none !important;
+                }
+
+                .marathiNumber {
+                    font-family: "marathiNumber";
+                    font-size: 1.4rem;
                 }
             </style>
-
         </head>
 
         <body>
-            <div class="d-print-none m-4">
-                <input type="button" value="Go Back" onclick='window.history.back()' class="btn btn-outline-dark">
-                <input type="text" value="<?php echo $file ?>" width='100%' id="filename" hidden>
+            <div class="d-print-none m-4 row">
+                <div class="col-6">
+                    <button class="btn btn-outline-dark" onclick='window.history.back()'>
+                        Go Back
+                    </button>
+                </div>
+                <div class="col-6 text-right">
+                    <button class="btn btn-warning" onclick='window.print()'>
+                        Print
+                    </button>
+                </div>
             </div>
-            <div class="container-fluid" style="height: 1500px;border: 2px solid black">
-
-                <!-- first Block (fblock) -->
-
-                <div class="fblock row">
-                    <div class="fblock1 col-3 font-weight-bold" style="font-size: 13px;">
-                        क्रमांक. 1<br>
-                        No. 1<br>
-                        <img src="../media/maharashtraSarkarLogo.png" height="80">
-                    </div>
-
-                    <div class="fblock2 col-6">
-                        <img src="../media/Emblem_of_India.svg.png" height="60">
-                        <p class="marginp" style="margin-top: 10px;">महाराष्ट्र शासन</p>
-                        <p>GOVERMENT OF MAHARASHTRA</p>
-                        <p class="marginp">आरोग्य विभाग</p>
-                        <p>DEPARTMENT OF HEALTH</p>
-                        <p style="margin: 20px 0 20px;">GRAMPANCHAYAT PALASDEO</p>
-                        <h5 class="marginp">मृत्यू प्रमाणपत्र</h5>
-                        <p style="font-weight: 500;">DEATH CERTIFICATE</p>
-                    </div>
-
-                    <div class="fblock3 col-3 font-weight-bold" style="font-size: 13px;">
-                        फोर्म-५<br>
-                        FORM-5<br>
-                        <img src="../media/birthAndDeathLogo.jpg" height="70">
-                    </div>
+            <div class="main">
+                <div class="row top-header border-bottom p-2 m-0">
+                    <p class="col ">प्रमाणपत्र क्र. / Certificate no.:<span>--data--</span></p>
+                    <p class="col text-right">नमुना ५ / form 5</p>
                 </div>
-
-                <!-- Second Block (sblock)-->
-
-                <div class="sblock">
-                    <div class="sblock1">
-                        <p class="marginp">जन्म व मृत्यू नोंदणी अधिनियम, १९६९ च्या कलम १२/१७ आणि महाराष्ट्र जन्म आणि मृत्यू
-                            नोंदणी नियम, २००० चे नियम ८/१३ अन्वये देण्यात आले आहे. </p>
-                        <p>(ISSUED UNDER SECTION 12/17 OF THE REGISTRATION OF BIRTHS & DEATHS ACT, 1969 AND RULE OF THE
-                            MAHARASHTRA REGISTRAION OF BIRTHS & DEATHS RULES 200)</p>
+                <div class="row header p-3 m-0">
+                    <div class="col-1 text-center">
+                        <img src="../media/Emblem_of_India.svg.png" height="130px" alt="img">
                     </div>
-                    <div class="sblcok2">
-                        <p class="marginp">प्रमाणित करण्यात येत आहे कि, खालील माहिती मृत्युच्या मूळ अभिलेखाच्या नोंदणीतून
-                            घेण्यात आली आहे, जी की ग्रामपंचायत पळसदेव, तालुका इंदापूर, जिल्हा पुणे, महाराष्ट्र राज्याच्या
-                            नोंदवहीत उल्लेख आहे.</p>
-                        <p>THIS IS TO CERTIFY THAT THE FOLLOWING INFROMATION HAS BEEN TAKEN FROM THE ORIGINAL RECORD OF DEATH
-                            WHICH IS THE REGISTER FOR GRAMPANCHAYAT PALASDEO OF TAHSIL/BLOCK INDAPUR OF DISTRICT PUNE OF
-                            STATE/UNION TERRITORY MAHARASHTRA, INDIA</p>
-                    </div>
-                </div>
-
-                <!-- MAIN BLOCK THIRD BLOCK (tblock) -->
-
-                <div class="tblock row font-weight-bold" style="margin-top: 25px;">
-                    <div class="tdata1 col-7 ">
-                        <p>मृताचे नाव / NAME OF DECEASED: <span><?php echo $name ?></span>/<span class="hinditext textNormal"><?php echo  $name_m; ?></span></p>
-
-                        <p class="marginp">आधार क्रमांक / AADHAAR NO.:</p>
-                        <p><span class="hideAadhar"><?php echo $aadharNo;  ?></span></p>
-
-                        <p class="marginp">मृत्यू दिनांक / DATE OF DEATH:</p>
-                        <p class="marginp"><span><?php echo $dateOfDeath;  ?></span></p>
-                        <p><span><?php echo $dateOfDeath_m;  ?></span></p>
-
-                        <p class="marginp">मृत व्यक्तीचे वय / AGE OF DECEASED:</p>
-                        <p><span><?php echo $age;  ?></span></p>
-
-                        <p class="marginp">आईचे पूर्ण नाव / NAME OF MOTHER: </p>
-                        <p><span><?php echo $nameOfMother ?></span>/<span class="hinditext textNormal"><?php echo $nameOfMother_m;  ?></span></p>
-
-                        <p>आधार क्रमांक / MOTHER'S AADHAAR NO.: <span class="hideAadhar"><?php echo $motherAadhaar;  ?></span></p>
-
-                        <p class="marginp">मयत व्यक्तीचा मृत्युसमयीचा पत्ता / ADDRESS OF DECEASED AT THE TIME OF DEATH:</p>
-                        <p><span><?php echo $addressDuringDeath ?></span>/
-                            <?php
-                            if ($addressDuringDeath_m == 'पळसदेव' || $addressDuringDeath_m == 'बांडेवाडी' || $addressDuringDeath_m == 'काळेवाडी' || $addressDuringDeath_m == 'माळेवाडी') { ?>
-                                <span class="hinditext textNormal" style="font-size: 00.9rem;"><?php echo $addressDuringDeath_m;  ?></span>
+                    <div class="col-10">
+                        <p class="title">
+                            <span class="text-center">
+                                महाराष्ट्र शासन <br>Government Of Maharashtra
+                                <br>
+                                आरोग्य विभाग <br>Health Department
+                            </span>
                         </p>
-                    <?php } else { ?>
-                        <span class="hinditext textNormal"><?php echo $addressDuringDeath_m;  ?></span></p>
-                    <?php }
-                    ?>
-
-                    <p class="marginp">नोंदणी क्रमांक / REGISTRATION NO.:</p>
-                    <p><span><?php echo $id;  ?></span></p>
-
-                    <p class="marginp">शेरा /REMARKS (IF ANY):</p>
-                    <p><span> <?php echo $remark; ?></span></p>
                     </div>
-                    <div class="tdata3 col-5">
-                        <p>लिंग/SEX: <span><?php echo $sex . "</span>/<span style='font-size: 0.9rem;'>" . $sex_m; ?></span></p>
-
-                        <p class="marginp">मृत्यूचे ठिकाण / PLACE OF DEATH: </p>
-                        <p><span><?php echo $placeOfDeath ?></span>/<span class="hinditext textNormal"><?php echo  $placeOfDeath_m; ?></span> </p>
-
-                        <p class="marginp">पती / पत्नी माहिती नाव / NAME OF HUSBAND/WIFE: </p>
-                        <p><span><?php echo $nameOfHusband_Wife ?></span>/<span class="hinditext textNormal"><?php echo  $nameOfHusband_Wife_m; ?></span></p>
-
-                        <p>आधार क्रमांक / HUSBAND/WIFE AADHAAR NO.: <span class="hideAadhar"><?php echo $aadhaarOfHusband_Wife; ?></span></p>
-
-                        <p class="marginp"> वडिलांचे पूर्ण नाव / NAME OF FATHER:</p>
-                        <p><span><?php echo $nameOfFather ?></span>/<span class="hinditext textNormal"><?php echo $nameOfFather_m; ?></span></p>
-
-                        <p>आधार क्रमांक / FATHER'S AADHAAR NO.: <span class="hideAadhar"><?php echo $fatherAadhaar; ?></span></p>
-
-                        <p class="marginp">मयत व्यक्तीचा कायमचा पत्ता / PERMANENT ADDRESS OF DECEASED: </p>
-                        <p class="marginp"><span><?php echo $permanentAddressOfDeceased; ?></span></p>
-                        <p><span class="hinditext textNormal"><?php echo $permanentAddressOfDeceased_m; ?></span></p>
-
-                        <p class="marginp"> नोंदणी दिनांक / DATE OF REGISTRATION:</p>
-                        <p><span><?php echo $dateOfRegistration; ?></span></p>
-                    </div>
+                    <div class="col-1"></div>
                 </div>
+                <div class="bottom-header">
+                    <p class="title">मृत्यू प्रमाणपत्र &nbsp;&nbsp; Death certificate</p>
+                </div>
+                <div class="top-body p-3 border-bottom m-0">
+                    <p class="definition m-0">
+                        (जन्म व मृत्यू नोंदणी अधिनियम, १९६९ च्या कलम १२/१७ अन्वयें आणि महाराष्ट्र जन्म आणि मृत्यू नोंदणी
+                        नियम २००० चे नियम ८/१३ अन्वये देण्यात आले आहे.)<br>
+                        (Issued under section 12/17 of the registration of
+                        birth and death act, 1969 and rule 8/13 of the maharashtra registration of birth and death rules
+                        2000.)
+                    </p>
+                </div>
+                <div class="body m-0">
+                    <div class="body-data row p-3 pb-4 m-0 mt-2">
+                        <div class="col p-2 m-0">
+                            <p>मृताचे पूर्ण नाव: <span class="data marathi"><?php echo $name_m ?></span></p>
+                            <p>Full Name Of Deceased: <span class="data"><?php echo $name ?></span></p>
 
-                <!-- fourth block (forblock)-->
+                            <p>मृत्यू तारीख: <span class="data marathiNumber date"><?php echo makeMarathiDateText($dateOfDeath);  ?></span></p>
+                            <p>Death date: <span class="data date"><?php echo makeMarathiDateText($dateOfDeath);  ?></span></p>
 
-                <div class="forblock row" style="margin-top: 15px;">
-                    <div class="fordata1 col-7">
-                        <p class="marginp">प्रमाणपत्र दिल्याची दिनांक / DATE OF ISSUE:</p>
-                        <p><span><?php echo $dateOfIssue; ?></span></p>
-                    </div>
-                    <div class="fordata3 col-5">
-                        <center>
-                            <p class="marginp">निर्गमित करणारे प्राधिकारी / ISSUING AUTHORITY</p>
-                        </center>
-                        <div class="sign">
-                            <p class="marginp">निबंधक (जन्म व मृत्यू)</p>
-                            <p class="marginp">REGISTRAR (BIRTH & DEATH)</p>
-                            <p style="margin-left: 10px;">GRAMPANCHAYAT PALASDEO</p>
+                            <p>आईचे पूर्ण नाव: <span class="data marathi"><?php echo $nameOfMother_m;  ?></span></p>
+                            <p>full name of mother: <span class="data"><?php echo $nameOfMother;  ?></span></p>
+
+                            <p>मयत व्यक्तीचा मृत्युसमयी पत्ता: <br><span class="data marathi"><?php echo $addressDuringDeath_m;  ?></span></p>
+                            <p>address of deceased at the time of death: <br><span class="data"><?php echo $addressDuringDeath;  ?></span></p>
+
+                            <p>शेरा: <span contenteditable="" class="data"><?php echo $remark; ?></span></p>
+                            <p>remarks: <span contenteditable="" class="data"><?php echo $remark; ?></span></p>
+
+                            <p>नोंदणी क्रमांक: <span contenteditable="" class="data marathiNumber"><?php echo $id;  ?></span></p>
+                            <p>registration number: <span contenteditable="" class="data"><?php echo $id;  ?></span></p>
+
+                            <p>प्रमाणपत्र दिल्याचा दिनांक: <span class="data marathiNumber"><?php echo makeMarathiDateText(date('d-m-Y')); ?></span></p>
+                            <p>certificate issue date: <span class="data"><?php echo makeMarathiDateText(date('d-m-Y')); ?></span></p>
+                        </div>
+                        <div class="col p-2 border-left m-0">
+                            <p>मृत्यू ठिकाण: <span class="data marathi"><?php echo $placeOfDeath_m ?></span></p>
+                            <p>place of death: <span class="data"><?php echo $placeOfDeath ?></span></p>
+
+                            <p>लिंग: <span class="data marathi"><?php echo $sex_m; ?></span></p>
+                            <p>sex: <span class="data"><?php echo $sex; ?></span></p>
+
+                            <p>वडिलांचे / पतीचे पूर्ण नाव: <span class="data marathi"><?php echo $nameOfHusband_Wife_m; ?></span></p>
+                            <p>name of father / husband: <span class="data"><?php echo $nameOfHusband_Wife; ?></span></p>
+
+                            <p>मयत व्यक्तीचा कायमचा पत्ता: <br><span class="data marathi"><?php echo $permanentAddressOfDeceased_m; ?></span></p>
+                            <p>permanent address of the deceased: <br><span class="data"><?php echo $permanentAddressOfDeceased; ?></span></p>
+
+                            <p>मयात व्यक्तीचा आधार क्रमांक: <span class="data marathiNumber"><?php echo $aadharNo; ?></span></p>
+                            <p>Aadhar card number of deceased: <span class="data"><?php echo $aadharNo; ?></span></p>
+
+                            <p>नोंदणी दिनांक: <span contenteditable="" class="data marathiNumber date"><?php echo makeMarathiDateText($dateOfRegistration); ?></span></p>
+                            <p>date of registration: <span contenteditable="" class="data date"><?php echo makeMarathiDateText($dateOfRegistration); ?></span></p>
                         </div>
                     </div>
+                    <p contenteditable="" class="definition border-top border-bottom p-4">
+                        प्रमाणित कार्य्नात येते आहे की, खालील माहिती मृत्यू च्या मुळ अभिलेखाच्या नोंदवहीतून घेण्यात आली आहे.
+                        ज्याचा (स्थानिक क्षेत्र) <span class="highlight">—</span> ता. <span class="highlight">—</span> जि. <span class="highlight">—</span> महाराष्ट्र राज्याच्या नोंदवहीत
+                        उल्लेख आहे. <br>
+                        this is a certify that the following information has been taken from the original record
+                        of death which is the register for (local area/ local body) <span class="highlight">—</span> of tehsil / block <span class="highlight">—</span>
+                        of district <span class="highlight">—</span> of maharashtra state.
+                    </p>
                 </div>
-
-                <!-- fifth block (fifblock)-->
-
-                <div class="fifblock">
-                    <p class="marginp">UPDATED ON:</p>
-                    <p class="marginp"><span><?php echo $updatedOn; ?></span></p>
-                    <img src="<?php echo $file ?>" height="80px">
+                <div class="footer definition row m-0 mt-5 pt-4">
+                    <div class="col text-center">
+                        <span class="seal">
+                            शिक्का / seal
+                        </span>
+                    </div>
+                    <div class="signature col text-center">
+                        निबंधक, <br>जन्म मृत्यू नोंदणी अधिकारी<br>
+                        REGISTRAR (BIRTH & DEATH)
+                        <!-- <br><br> -->
+                        <!-- ग्रामपंचायत ---------- ता. ---------- जि. ---------- -->
+                    </div>
                 </div>
-
-                <!-- Airtel thanks block -->
-
-                <div class="airtelT">
-                    <center>
-                        <p class="marginp">*THIS IS A COMPUTER GENERATED CERTIFICATE WHICH CONTAINS FACSIMILE SIGNATURE OF THE
-                            ISSUING AUTHORITY*</p>
-                        <p class="marginp">THE GOVT. OF INDIA VIDE CIRCULAR NO. 1/12/2014-VS(CRS) DATED 27-JULY-2015 HAS</p>
-                        <p class="marginp">APPROVED THIS CERTIFICATE AS A VALID LEGAL DOCUMENT FOR ALL OFFICIAL PURPOSES.</p>
-                        <p class="marginp" style="font-weight: 600;">*प्रत्येक जन्म आणि मृत्यूची घटना नोंदल्याची खात्री करा* /
-                            ENSURE REGISTRATION OF EVERY BIRTH AND DEATH*</p>
-                    </center>
-                </div>
-
             </div>
+            <script src="../resources/bootstrap/js/jquery.js"></script>
+            <script>
+                hideAadhar();
+                window.print();
+                dateFix()
 
-            <?php include '../resources/jsScript.php'; ?>
+                function delqr() {
+                    var file = $("#filename").val();
+                    $.ajax({
+                        url: './deleteQR.php',
+                        type: "POST",
+                        data: {
+                            file: file
+                        },
+                        success: function(data) {
+                            //$('').html(data);
+                        }
+                    });
+                }
 
+                delqr();
+                //window.onafterprint = function(){
+                //    var hist = history.back();
+                ///  window.open(hist,"_self")
+                //}
+            </script>
         </body>
 
         </html>
-        <script src="../resources/bootstrap/js/jquery.js"></script>
-        <script>
-            hideAadhar();
-            window.print();
-
-            function delqr() {
-                var file = $("#filename").val();
-                $.ajax({
-                    url: './deleteQR.php',
-                    type: "POST",
-                    data: {
-                        file: file
-                    },
-                    success: function(data) {
-                        //$('').html(data);
-                    }
-                });
-            }
-
-            delqr();
-            //window.onafterprint = function(){
-            //    var hist = history.back();
-            ///  window.open(hist,"_self")
-            //}
-        </script>
 
 <?php
 

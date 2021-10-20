@@ -30,23 +30,16 @@ include '../resources/cssLinks.php';
                         <option value="name_m">नाव </option>
                         <option value="sex">Sex </option>
                         <option value="aadharNo">Aadhaar No. </option>
-                        <option value="age">Age </option>
                         <option value="dateOfDeath">Death Date </option>
                         <option value="placeOfDeath">Death Place </option>
                         <option value="placeOfDeath_m">मृत्यू ठिकाण </option>
                         <option value="nameOfHusband_Wife">Father/Husband Name </option>
-                        <option value="nameOfHusband_Wife_m">वडील@पतीचे नाव </option>
-                        <option value="aadhaarOfHusband_Wife">Father/Husband Aadhar no.</option>
-                        <option value="nameOfFather">Father Name </option>
-                        <option value="nameOfFather_m">वडिलांचे नाव </option>
+                        <option value="nameOfHusband_Wife_m">वडील / पतीचे नाव </option>
                         <option value="nameOfMother">Mother Name </option>
                         <option value="nameOfMother_m">आईचे नाव </option>
-                        <option value="fatherAadhaar">Father's Aadhaar No. </option>
-                        <option value="motherAadhaar">Mother's Aadhaar No. </option>
                         <option value="addressDuringDeath">Address During Death </option>
                         <option value="addressDuringDeath_m">मृत्यूवेळी मृत व्यक्तीचा पत्ता </option>
                         <option value="permanentAddressOfDeceased">Deceased permenant Address </option>
-                        <option value="dateOfRegistration">Reg. Date </option>
                     </select>
                 </div>
 
@@ -68,23 +61,23 @@ include '../resources/cssLinks.php';
             </div>
         </div>
         <?php include '../resources/PageButtons.php'; ?>
-         <!-- Modal -->
-         <div class="modal top fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
-          <div class="modal-dialog">
-            <div class="modal-content" >
-              <div id="modal">
-        
-              </div>
-              <div class="modal-body">
-                <img src="" id="qrimg" height="475px"></img>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-mdb-dismiss="modal">
-                  Close
-                </button>
-              </div>
+        <!-- Modal -->
+        <div class="modal top fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-mdb-backdrop="true" data-mdb-keyboard="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div id="modal">
+
+                    </div>
+                    <div class="modal-body">
+                        <img src="" id="qrimg" height="475px"></img>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-dark" data-mdb-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
 
     </main>
@@ -95,7 +88,7 @@ include '../resources/cssLinks.php';
 <?php include '../resources/jsScript.php'; ?>
 
 <script>
-    let selectRow = (row, id) => {            
+    let selectRow = (row, id) => {
         $.ajax({
             url: "./ajax/generateQR.php",
             type: "POST",
@@ -105,12 +98,12 @@ include '../resources/cssLinks.php';
             success: function(data) {
                 $('#modal').html(data);
                 var qr = document.getElementById('qrimg');
-                qr.src = "../qrImage/"+id+"qrImg.png";
-                
+                qr.src = "../qrImage/" + id + "qrImg.png";
+
             }
-        }); 
+        });
     };
-    window.onload = ()=>{
+    window.onload = () => {
         call();
         deleteQR(3);
     };

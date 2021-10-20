@@ -57,12 +57,9 @@ include '../resources/cssLinks.php';
 						<option value="nameOfFather_m">वडिलांचे नाव </option>
 						<option value="nameOfMother">Mother Name </option>
 						<option value="nameOfMother_m">आईचे नाव </option>
-						<option value="fatherAadharNo">Father's Aadhaar No. </option>
-						<option value="motherAadharNo">Mother's Aadhaar No. </option>
 						<option value="addressDuringBirth">Parents Address During Birth </option>
-						<option value="addressDuringBirth_m">मुलाच्या जन्मावेळी पालकांचा पत्ता </option>
+						<option value="addressDuringBirth_m">बाळाच्या जन्मावेळी पालकांचा पत्ता </option>
 						<option value="permanentAddressOfParents">Parents permenant Address </option>
-						<option value="dateOfRegistration">Reg. Date </option>
 					</select>
 				</div>
 
@@ -186,68 +183,15 @@ include '../resources/cssLinks.php';
 							</div>
 						</div>
 
+						<div class="form-outline mb-4">
+							<textarea required class="form-control" id="addressDuringBirth" name="addressDuringBirth" rows="1"></textarea>
+							<label class="form-label" for="addressDuringBirth">Address of Parents at time of birth of child</label>
+						</div>
 
-						<div class="row mb-4">
-							<div class="col">
-								<div class="form-outline aadhar-input">
-									<input required type="number" class="form-control" id="fatherAadharNo" name="fatherAadharNo" />
-									<label class="form-label" data-label="Father" for="fatherAadharNo">Father's Aadhar no.</label>
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-outline aadhar-input">
-									<input required type="number" class="form-control" id="motherAadharNo" name="motherAadharNo" />
-									<label id="hahaha" class="form-label" data-label="Mother" for="motherAadharNo">Mother's Aadhar no.</label>
-								</div>
-							</div>
+						<div class="form-outline mb-4">
+							<textarea required class="form-control hinditext" id="addressDuringBirth_m" name="addressDuringBirth_m" rows="1"></textarea>
+							<label class="form-label hinditext" for="addressDuringBirth_m">बाळाच्या बाळाच्या जन्मावेळी पालकांचा पत्ता</label>
 						</div>
-						<div class="col mb-4">
-							<select required onchange="checkOther(this)" class="form-select" id="addressDuringBirth" name="addressDuringBirth" aria-label="Default select example" style="opacity: 0.8; font-size: 14px;">
-								<option data-warning="PLEASE SELECT ADDRESS OF PARENTS AT TIME OF BIRTH OF CHILD" selected value="-1">Address of Parents at time of birth of child</option>
-								<option value="Palasdeo">Palasdeo (पळसदेव)</option>
-								<option value="Bandewadi">Bandewadi (बांडेवाडी)</option>
-								<option value="Kalewadi">Kalewadi (काळेवाडी)</option>
-								<option value="Malewadi">Malewadi (माळेवाडी)</option>
-								<option value="other" id="otherOption">Other</option>
-							</select>
-						</div>
-						<div id="display" style="display: none;" class="mb-4">
-							<div class="form-outline mb-4">
-								<textarea class="form-control" rows="1" id="addressDuringBirthOther" name=""></textarea>
-								<label class="form-label" for="addressDuringBirthOther">Address of Parents at time of birth of child</label>
-							</div>
-							<div class="form-outline">
-								<textarea class="form-control hinditext" rows="1" id="addressDuringBirthOther_m" name=""></textarea>
-								<label class="form-label" for="addressDuringBirthOther_m">मुलाच्या जन्मावेळी पालकांचा पत्ता</label>
-							</div>
-						</div>
-						<script>
-							function checkOther(select) {
-								var selValue = select.value;
-								select.style.color = "black";
-
-								if (selValue == "other") {
-									document.getElementById('display').style.display = "block";
-									document.getElementById('addressDuringBirth').name = "";
-									document.getElementById('addressDuringBirthOther').name = "addressDuringBirth";
-									document.getElementById('addressDuringBirthOther_m').name = "addressDuringBirth_m";
-									document.getElementById('addressDuringBirth').removeAttribute('required');
-									document.getElementById('addressDuringBirthOther').setAttribute('required', '');
-									document.getElementById('addressDuringBirthOther_m').setAttribute('required', '');
-									document.getElementById('otherOption').innerHTML = "Other (Enter the Address Below)";
-									document.getElementById('addressDuringBirthOther').focus();
-								} else {
-									document.getElementById('display').style.display = "none";
-									document.getElementById('addressDuringBirth').name = "addressDuringBirth";
-									document.getElementById('addressDuringBirthOther').name = "";
-									document.getElementById('addressDuringBirthOther_m').name = "";
-									document.getElementById('addressDuringBirth').setAttribute('required', '');
-									document.getElementById('addressDuringBirthOther').removeAttribute('required');
-									document.getElementById('addressDuringBirthOther_m').removeAttribute('required');
-									document.getElementById('otherOption').innerHTML = "Other";
-								}
-							}
-						</script>
 
 						<div class="form-outline mb-4">
 							<textarea required class="form-control" id="permanentAddressOfParents" name="permanentAddressOfParents" rows="1"></textarea>
@@ -320,33 +264,10 @@ require "../common.php";
 		document.getElementById('nameOfFather_m').value = document.getElementById('nameOfFather_m' + id).innerHTML;
 		document.getElementById('nameOfMother').value = document.getElementById('nameOfMother' + id).innerHTML;
 		document.getElementById('nameOfMother_m').value = document.getElementById('nameOfMother_m' + id).innerHTML;
-		document.getElementById('fatherAadharNo').value = document.getElementById('fatherAadharNo' + id).innerHTML;
-		document.getElementById('motherAadharNo').value = document.getElementById('motherAadharNo' + id).innerHTML;
-		var birthAddress = document.getElementById('addressDuringBirth' + id).innerHTML;
-		if (birthAddress == 'Palasdeo' || birthAddress == 'Kalewadi' || birthAddress == 'Malewadi' || birthAddress == 'Bandewadi') {
-			document.getElementById('addressDuringBirth').value = birthAddress;
-			document.getElementById('display').style.display = "none";
-			document.getElementById('addressDuringBirth').name = "addressDuringBirth";
-			document.getElementById('addressDuringBirthOther').name = "";
-			document.getElementById('addressDuringBirthOther_m').name = "";
-			document.getElementById('addressDuringBirth').setAttribute('required', '');
-			document.getElementById('addressDuringBirthOther').removeAttribute('required');
-			document.getElementById('addressDuringBirthOther_m').removeAttribute('required');
-			document.getElementById('otherOption').innerHTML = "Other";
-		} else {
-			document.getElementById('addressDuringBirth').value = 'other';
-			document.getElementById('addressDuringBirthOther').value = birthAddress;
-			document.getElementById('addressDuringBirthOther_m').value = document.getElementById('addressDuringBirth_m' + id).innerHTML;;
-			document.getElementById('display').style.display = "block";
-			document.getElementById('addressDuringBirth').name = "";
-			document.getElementById('addressDuringBirthOther').name = "addressDuringBirth";
-			document.getElementById('addressDuringBirthOther_m').name = "addressDuringBirth_m";
-			document.getElementById('addressDuringBirth').removeAttribute('required');
-			document.getElementById('addressDuringBirthOther').setAttribute('required', '');
-			document.getElementById('addressDuringBirthOther_m').setAttribute('required', '');
-			document.getElementById('otherOption').innerHTML = "Other (Enter the Address Below)";
-			document.getElementById('addressDuringBirthOther').focus();
-		}
+
+		document.getElementById('addressDuringBirth').value = document.getElementById('addressDuringBirth' + id).innerHTML;;
+		document.getElementById('addressDuringBirth_m').value = document.getElementById('addressDuringBirth_m' + id).innerHTML;;
+
 		document.getElementById('permanentAddressOfParents').value = document.getElementById('permanentAddressOfParents' + id).innerHTML;
 		document.getElementById('permanentAddressOfParents_m').value = document.getElementById('permanentAddressOfParents_m' + id).innerHTML;
 		document.getElementById('regdate').value = document.getElementById('dateOfRegistration' + id).innerHTML;

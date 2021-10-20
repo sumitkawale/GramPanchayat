@@ -81,8 +81,6 @@ $html .= '
                         <th scope="col">वडिलांचे नाव</th>
                         <th scope="col">Mother Name</th>
                         <th scope="col">आईचे नाव</th>
-                        <th scope="col">Father\'s Aadhaar No.</th>
-                        <th scope="col">Mother\'s Aadhaar No.</th>
                         <th scope="col">Parents Address During Birth</th>
                         <th scope="col">मुलाच्या जन्मावेळी पालकांचा पत्ता</th>
                         <th scope="col">Parents permenant Address</th>
@@ -128,8 +126,6 @@ if ($data != '') {
                 <td id='nameOfFather_m$tbid' class='hinditext'>{$row['nameOfFather_m']}</td>
                 <td id='nameOfMother$tbid'>{$row['nameOfMother']}</td>
                 <td id='nameOfMother_m$tbid' class='hinditext'>{$row['nameOfMother_m']}</td>
-                <td id='fatherAadharNo$tbid'>{$row['fatherAadharNo']}</td>
-                <td id='motherAadharNo$tbid'>{$row['motherAadharNo']}</td>
                 <td id='addressDuringBirth$tbid'>{$row['addressDuringBirth']}</td>
                 <td id='addressDuringBirth_m$tbid' class='hinditext'>{$row['addressDuringBirth_m']}</td>
                 <td id='permanentAddressOfParents$tbid'>{$row['permanentAddressOfParents']}</td>

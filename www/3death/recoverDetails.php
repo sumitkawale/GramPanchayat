@@ -57,23 +57,16 @@ include '../resources/cssLinks.php';
                         <option value="name_m">नाव </option>
                         <option value="sex">Sex </option>
                         <option value="aadharNo">Aadhaar No. </option>
-                        <option value="age">Age </option>
                         <option value="dateOfDeath">Death Date </option>
                         <option value="placeOfDeath">Death Place </option>
                         <option value="placeOfDeath_m">मृत्यू ठिकाण </option>
                         <option value="nameOfHusband_Wife">Father/Husband Name </option>
-                        <option value="nameOfHusband_Wife_m">वडील@पतीचे नाव </option>
-                        <option value="aadhaarOfHusband_Wife">Father/Husband Aadhar no.</option>
-                        <option value="nameOfFather">Father Name </option>
-                        <option value="nameOfFather_m">वडिलांचे नाव </option>
+                        <option value="nameOfHusband_Wife_m">वडील / पतीचे नाव </option>
                         <option value="nameOfMother">Mother Name </option>
                         <option value="nameOfMother_m">आईचे नाव </option>
-                        <option value="fatherAadhaar">Father's Aadhaar No. </option>
-                        <option value="motherAadhaar">Mother's Aadhaar No. </option>
                         <option value="addressDuringDeath">Address During Death </option>
                         <option value="addressDuringDeath_m">मृत्यूवेळी मृत व्यक्तीचा पत्ता </option>
                         <option value="permanentAddressOfDeceased">Deceased permenant Address </option>
-                        <option value="dateOfRegistration">Reg. Date </option>
                     </select>
                 </div>
 
@@ -118,7 +111,7 @@ include '../resources/cssLinks.php';
 
         <div hidden="true" id="hiddenForms" style="display:none;opacity:0;"></div>
         <?php include '../resources/PageButtons.php'; ?>
-        
+
     </main>
 </body>
 
@@ -137,7 +130,7 @@ include '../resources/cssLinks.php';
             row.style.color = 'black';
         }
     }
-    
+
     let deletePermanently = () => {
         var input = $(" [name='checkboxes[]' ")
         var form = document.createElement("form")
@@ -149,7 +142,7 @@ include '../resources/cssLinks.php';
         $("#hiddenForms").append(form)
         form.submit()
     };
-    
+
     let recoverDeleted = () => {
         var input = $(" [name='checkboxes[]' ")
         var form = document.createElement("form")

@@ -31,22 +31,8 @@ $html = '
                         <th scope="col">वराचे नाव</th>
                         <th scope="col">Wife Name</th>
                         <th scope="col">वधूचे नाव</th>
-                        <th scope="col">Husband Age</th>
-                        <th scope="col">Wife Age</th>
                         <th scope="col">Husband Aadhar No. </th>
                         <th scope="col">Wife Aadhar No. </th>
-                        <th scope="col">Husband Religion</th>
-                        <th scope="col">वराचा धर्म</th>
-                        <th scope="col">Wife Religion</th>
-                        <th scope="col">वधूचा धर्म</th>
-                        <th scope="col">Husband Nationality</th>
-                        <th scope="col">वराचे राष्ट्रीयत्व</th>
-                        <th scope="col">Wife Nationality</th>
-                        <th scope="col">वधूचे राष्ट्रीयत्व</th>
-                        <th scope="col">Husband Father Name</th>
-                        <th scope="col">वराच्या वडिलांचे नाव</th>
-                        <th scope="col">Wife Father Name</th>
-                        <th scope="col">वधूच्या वडिलांचे नाव</th>
                         <th scope="col">Husband Address</th>
                         <th scope="col">वराचा पत्ता</th>
                         <th scope="col">Wife Address</th>
@@ -74,27 +60,13 @@ if ($data != '') {
             $html .= "
                 <td><input type='checkbox' name='checkboxes[]' onclick='changeColor(this)' value='{$row['id']}' id='{$row['id']}'> </th>
                 <th scope='row'>$sr</th>
-                <td>{$row['id']}</td>
+                <td>{$row['id']}d</td>
                 <td>{$row['husbandName']}</td>
                 <td class='hinditext'>{$row['husbandName_m']}</td>
                 <td>{$row['wifeName']}</td>
                 <td class='hinditext'>{$row['wifeName_m']}</td>
-                <td>{$row['husbandAge']}</td>
-                <td>{$row['wifeAge']}</td>
                 <td>{$row['husbandAadharNo']}</td>
                 <td>{$row['wifeAadharNo']}</td>
-                <td>{$row['husbandReligion']}</td>
-                <td class='hinditext'>{$row['husbandReligion_m']}</td>
-                <td>{$row['wifeReligion']}</td>
-                <td class='hinditext'>{$row['wifeReligion_m']}</td>
-                <td>{$row['husbandNationality']}</td>
-                <td class='hinditext'>{$row['husbandNationality_m']}</td>
-                <td>{$row['wifeNationality']}</td>
-                <td class='hinditext'>{$row['wifeNationality_m']}</td>
-                <td>{$row['husbandFatherName']}</td>
-                <td class='hinditext'>{$row['husbandFatherName_m']}</td>
-                <td>{$row['wifeFatherName']}</td>
-                <td class='hinditext'>{$row['wifeFatherName_m']}</td>
                 <td>{$row['husbandAddress']}</td>
                 <td class='hinditext'>{$row['husbandAddress_m']}/td>
                 <td>{$row['wifeAddress']}</td>

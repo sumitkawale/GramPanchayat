@@ -10,4 +10,6 @@
 webcache/
 php/
 locales/
+.vscode/*
 www/database/database.db
+www/qrImage/*.png

@@ -8,7 +8,6 @@ function makeMarathiDateText($stringDate)
     $stringDate = str_replace("/", " ∕ ", $stringDate);
     $stringDate = str_replace(":", "∶", $stringDate);
     $stringDate = str_replace("-", " ∕ ", $stringDate);
-
     return $stringDate;
 }
 
@@ -155,7 +154,7 @@ if (isset($_GET['id'])) {
             $file = $path . $id . $husbandName . 'qrImg.png';
             QRcode::png($text, $file, 'L', 8); //echo $file;
         } catch (PDOException $e) {
-            echo "error aala aahe" . $e;
+            echo "error aala aahe " . $e;
         }
 
 ?>
@@ -232,8 +231,7 @@ if (isset($_GET['id'])) {
                     white-space: pre;
                 }
 
-                .bodyDetailsPanel p,
-                .footerDetailsPanel p {
+                .bodyDetailsPanel p {
                     font-weight: 600;
                     font-size: var(--title);
                     margin: 0px;
@@ -249,8 +247,7 @@ if (isset($_GET['id'])) {
 
                 .bodyDataPanel div p {
                     margin: 5px 0;
-                    font-weight: 500;
-                    font-size: 1.2rem;
+                    font-weight: 600;
                 }
 
                 .bodyDataPanel div p:nth-child(even) {
@@ -263,18 +260,8 @@ if (isset($_GET['id'])) {
 
                 .textNormal {
                     text-transform: none;
-                    /* font-size: 1.3rem; */
+                    font-size: 1.3rem;
                 }
-
-                .data {
-                    font-weight: bolder;
-                    font-size: 1.15rem;
-                }
-
-                .highlight {
-                    background-color: orange;
-                }
-
             </style>
 
             <style>
@@ -290,7 +277,6 @@ if (isset($_GET['id'])) {
 
                 .marathi {
                     font-family: "marathi";
-                    text-transform: none !important;
                 }
 
                 .marathiNumber {
@@ -302,32 +288,25 @@ if (isset($_GET['id'])) {
         </head>
 
         <body>
-            <div class="d-print-none m-4 row">
-                <div class="col-6">
-                    <button class="btn btn-outline-dark" onclick='window.history.back()'>
-                        Go Back
-                    </button>
-                </div>
-                <div class="col-6 text-right">
-                    <button class="btn btn-warning" onclick='window.print()'>
-                        Print
-                    </button>
-                </div>
+            <div class="d-print-none m-4">
+                <button class="btn btn-outline-dark" onclick='window.history.back()'>
+                    Go Back
+                </button>
                 <input type="text" value="<?php echo $file ?>" width='100%' id="filename" hidden>
             </div>
             <!-- code starts here -->
             <div class="main container-fluid">
                 <div class="row">
                     <div class="headingContent borderBottom col-12 mb-3">
-                        <div class="topHeadingPanel row borderBottom p-2">
+                        <div class="topHeadingPanel row borderBottom pb-1">
                             <div class="col-6 text-left">प्रमाणपत्र क्र. <span class="marathiNumber"><?php echo $id ?></span> Certificate No. <span><?php echo $id ?></span></div>
-                            <div class="col-6 text-right">नमुना - 'ई' / Form - <span>E</span></div>
+                            <div class="col-6 text-right">नमुना - 'ई' /Form - <span>E</span></div>
                         </div>
                         <div class="mainHeadingPanel row border">
-                            <div class="mainHeadingLeft col-3 border-right mt-2 mb-2">
+                            <div class="mainHeadingLeft col-3 border-right mt-2">
                                 <center>
-                                    <div style="width:10.5em; border: 1px solid gray; padding: 5rem 0;">
-                                        Photo of Husband<br>वराचा फोटो
+                                    <div style="width:9em; border: 1px solid gray; padding: 4.5rem 0;">
+                                        Photo of Husband
                                         <!-- <img src="../media/Emblem_of_India.svg.png" height="130px" alt="img" class=""> -->
                                     </div>
                                 </center>
@@ -345,10 +324,10 @@ if (isset($_GET['id'])) {
                                     <b>महाराष्ट्र शासन</b>
                                 </center>
                             </div>
-                            <div class="mainHeadingRight col-3 border-left mt-2 mb-2">
+                            <div class="mainHeadingRight col-3 border-left mt-2">
                                 <center>
-                                    <div style="width:10.5em; border: 1px solid gray; padding: 5rem 0;">
-                                        Photo of Wife<br>वधूचा फोटो
+                                    <div style="width:9em; border: 1px solid gray; padding: 4.5rem 0;">
+                                        Photo of Wife
                                         <!-- <img src="../media/marriageLogo.png" height="130px" alt="img" class=""> -->
                                     </div>
                                 </center>
@@ -356,14 +335,14 @@ if (isset($_GET['id'])) {
                         </div>
                         <div class="bottomHeadingPanel p-1">
                             <center>
-                                <p class="fontTitle m-2">
-                                    (भाग चार - ब) महाराष्ट्र शासण राजपत्र मे २०, १९९९,/ वैशाख ३०, शके १९२१
+                                <p class="fontTitle m-0">
+                                    ग्रामपंचायत - पळसदेव. तालुका - इंदापूर. जिल्हा - पुणे
                                 </p>
                             </center>
                         </div>
                     </div>
                     <div class="bodyContent col-12">
-                        <div class="bodyTitlePanel pt-2">
+                        <div class="bodyTitlePanel">
                             <div class="titlePart">
                                 <center>
                                     <h4>विवाह नोंदणीचे प्रमाणपत्र</h4>
@@ -371,87 +350,111 @@ if (isset($_GET['id'])) {
                                 </center>
                             </div>
                         </div>
-                        <div class="bodyDetailsPanel pt-5 pb-4 pl-4 pr-4">
+                        <div class="bodyDetailsPanel p-4">
                             <p class="text-justify">
-                                महाराष्ट्र विवाह मंडळाचे विधीनियम आणि विवाह नोंदणी अधिनियम १९९८ च्या कलम ६(१) विवाह नोंदणी नियम १९९९
-                                नियम ५ अन्वये देण्यात आलेले आहे
+                                (महाराष्ट्र विवाह मंडळाचे विधीनियम आणि विवाह नोंदणी अधिनियम १९९८ च्या कलम ६(१) विवाह नोंदणी नियम १९९९
+                                नियम ५ अन्वये देण्यात आलेले आहे)
                             </p>
                             <p class=" text-justify">
                                 (Issued under section 6(1) of the Registration of Marriage Acts, 1998 and issue under
                                 Registration of Marriage Rule 1999 Rule 5 of Maharashtra Regulation Marriage Bureaus)
                             </p>
                             <br>
-                            <!-- <p class=" text-justify">
+                            <p class=" text-justify">
                                 प्रमाणित करण्यात येते कि, खालील माहिती विवाह नोंदणीच्या मुळ अभिलेखाच्या नोंदवहीतून घेण्यात आली
                                 आहे. जी कि (स्थानिक क्षेत्र) ग्रामपंचायत - पळसदेव. तालुका - इंदापूर. जिल्हा - पुणे. महाराष्ट्र
                                 राज्याच्या नोंदवहीत उल्लेख
                                 आहे.
                             </p>
-                            <p class="text-justify">
-                                (This is to certify that the following information has been taken
+                            <p class=" text-justify">This is to certify that the following information has been taken
                                 from the original record of Marriage is the register for (Local Area / Local Body) of District
-                                of Maharashtra State)</p> -->
+                                of Maharashtra State.</p>
                         </div>
                         <div class="bodyDataPanel row p-3 pl-4 pr-4 border-top border-bottom">
                             <div class="data1 col-6">
-                                <p>वराचे नाव : <span class="data marathi textNormal"><?php echo $husbandName_m ?></span></p>
-                                <p>Husband Name : <span class="data"><?php echo $husbandName ?></span></p>
+                                <p>वराचे नाव : <span class="marathi textNormal"><?php echo $husbandName_m ?></span></p>
+                                <p>Husband Name : <span><?php echo $husbandName ?></span></p>
 
-                                <p>वराचा आधार क्र. : <span class="data hideAadhar marathi marathiNumber"><?php echo $husbandAadharNo ?></span></p>
-                                <p>Husband's Aadhar No. : <span class="data hideAadhar"><?php echo $husbandAadharNo ?></span></p>
+                                <p>वराचे वय : <span class="marathi marathiNumber"><?php echo $husbandAge ?></span></p>
+                                <p>Husband Age : <span><?php echo $husbandAge ?></span></p>
+
+                                <p>वराचा आधार क्र. : <span class="hideAadhar marathi marathiNumber"><?php echo $husbandAadharNo ?></span></p>
+                                <p>Husband's Aadhar No. : <span class="hideAadhar"><?php echo $husbandAadharNo ?></span></p>
+
+                                <p>वराचा धर्म : <span class="marathi textNormal"><?php echo $husbandReligion_m ?></span></p>
+                                <p>Husband Religion : <span><?php echo $husbandReligion ?></span></p>
+
+                                <p>वराचे राष्ट्रीयत्व : <span class="marathi textNormal"><?php echo $husbandNationality_m ?></span></p>
+                                <p>Husband Nationality : <span><?php echo $husbandNationality ?></span></p>
+
+                                <p>वराच्या वडिलांचे नाव : <span class="marathi textNormal"><?php echo $husbandFatherName_m ?></span></p>
+                                <p>Husband's Father Name : <span><?php echo $husbandFatherName ?></span></p>
 
                                 <?php
                                 if ($husbandAddress_m == 'पळसदेव' || $husbandAddress_m == 'बांडेवाडी' || $husbandAddress_m == 'काळेवाडी' || $husbandAddress_m == 'माळेवाडी') { ?>
-                                    <p>वराचा पत्ता : <span class="data marathi textNormal" style="font-size: 00.9rem;"><?php echo $husbandAddress_m ?></span></p>
+                                    <p>वराचा पत्ता : <span class="marathi textNormal" style="font-size: 00.9rem;"><?php echo $husbandAddress_m ?></span></p>
                                 <?php } else { ?>
-                                    <p>वराचा पत्ता : <span class="data marathi textNormal"><?php echo $husbandAddress_m ?></span></p>
+                                    <p>वराचा पत्ता : <span class="marathi textNormal"><?php echo $husbandAddress_m ?></span></p>
                                 <?php }
                                 ?>
-                                <p>Husband Address : <span class="data"><?php echo $husbandAddress ?></span></p>
+                                <p>Husband Address : <span><?php echo $husbandAddress ?></span></p>
+
+                                <p>विवाहाची तारीख : <span class="marathi marathiNumber"><?php echo $dateOfMarriage_m ?></span></p>
+                                <p>Date of Marriage : <span><?php echo $dateOfMarriage ?></span></p>
                             </div>
                             <div class="data2 col-6">
-                                <p>वधूचे नाव : <span class="data marathi textNormal"><?php echo $wifeName_m ?></span></p>
-                                <p>Wife Name : <span class="data"><?php echo $wifeName ?></span></p>
+                                <p>वधूचे नाव : <span class="marathi textNormal"><?php echo $wifeName_m ?></span></p>
+                                <p>Wife Name : <span><?php echo $wifeName ?></span></p>
 
-                                <p>वधूचा आधार क्र. : <span class="data hideAadhar marathi marathiNumber"><?php echo $wifeAadharNo ?></span></p>
-                                <p>Wife's Aadhar No. : <span class="data hideAadhar"><?php echo $wifeAadharNo ?></span></p>
+                                <p>वधूचे वय : <span class="marathi marathiNumber"><?php echo $wifeAge ?></span></p>
+                                <p>Wife Age : <span><?php echo $wifeAge ?></span></p>
 
-                                <p>वधूचा पत्ता : <span class="data marathi textNormal"><?php echo $wifeAddress_m ?></span></p>
-                                <p>Wife Address : <span class="data"><?php echo $wifeAddress ?></span></p>
+                                <p>वधूचा आधार क्र. : <span class="hideAadhar marathi marathiNumber"><?php echo $wifeAadharNo ?></span></p>
+                                <p>Wife's Aadhar No. : <span class="hideAadhar"><?php echo $wifeAadharNo ?></span></p>
 
+                                <p>वधूचा धर्म : <span class="marathi textNormal"><?php echo $wifeReligion_m ?></span></p>
+                                <p>Wife Religion : <span><?php echo $wifeReligion ?></span></p>
+
+                                <p>वधूचे राष्ट्रीयत्व : <span class="marathi textNormal"><?php echo $wifeReligion_m ?></span></p>
+                                <p>Wife Nationality : <span><?php echo $wifeReligion ?></span></p>
+
+                                <p>वधूच्या वडिलांचे नाव : <span class="marathi textNormal"><?php echo $wifeFatherName_m ?></span></p>
+                                <p>Wife's Father Name : <span><?php echo $wifeFatherName ?></span></p>
+
+                                <p>वधूचा पत्ता : <span class="marathi textNormal"><?php echo $wifeAddress_m ?></span></p>
+                                <p>Wife Address : <span><?php echo $wifeAddress ?></span></p>
+
+                                <p>विवाहाचे ठिकाण : <span class="marathi textNormal"><?php echo $placeOfMarriage_m ?></span></p>
+                                <p>Place Of Marriage : <span><?php echo $placeOfMarriage ?></span></p>
                             </div>
                         </div>
                     </div>
-                    <div class="footerContent col-12 mt-4 mb-4">
+                    <!-- <img src="../qrImage/qrImg.png" height="75px"> -->
+                    <div class="footerContent col-12" style="margin-top: 8px;">
                         <div class="footerBottom row">
-                            <!-- <div class="footerBottomLeft col-1">
-                                <img src="<?php //echo $file 
-                                            ?>" height="100px" style='margin-left:20px;'>
-                            </div> -->
-                            <div class="footerDetailsPanel pl-3 pr-3 col-12">
+                            <div class="footerBottomLeft col-1">
+                                <img src="<?php echo $file ?>" height="100px" style='margin-left:20px;'>
+                            </div>
+                            <div class="footerDetailsPanel pl-5 pr-5 col-11">
                                 <center>
-                                    <div contenteditable="" class="text-justify pl-5 pr-5">
-                                        <p>
-                                            <span class="data marathi textNormal"><?php echo $placeOfMarriage_m ?></span> या ठिकाणी, <span class="marathiNumber data date"><?php echo makeMarathiDateText($dateOfMarriage) ?></span> रोजी विधी संपन्न झाला. त्यांची महाराष्ट्र विवाह मंडळाचे नियम आणि विवाह नोंदणी विधेयक, १९९८ अन्वये ठेवण्यात आलेल्या नोंदवहीच्या खंड क्रमांक <span class="highlight">—</span> च्या अनुक्रमांक <span class="highlight">—</span> वर दिनांक: <span class="marathiNumber date"><?php echo $dateOfRegistration_m ?></span> रोजी माझ्याकडून नोंदणी करण्यात आली आहे.
-                                        </p>
-                                        <br><br>
-                                        <p>
-                                            Solemnized on: <span class="date data"><?php echo makeMarathiDateText($dateOfMarriage) ?></span> At: <span class="data"> <?php echo $placeOfMarriage ?> </span> Register of marriage maintained under the maharashtra regulation of marriage bureaus and registration of marriages Act 1998. Of volume <span class="highlight">—</span> series No. <span class="highlight">—</span> On: <span class="date"><?php echo makeMarathiDateText($dateOfRegistration) ?></span> Registered by me.
-                                        </p>
-                                    </div>
+                                    <p class="text-justify pl-5 pr-5">
+                                        महाराष्ट्र विवाह मंडळाचे विधीनियाम आणि विवाह नोंदणी विधेयक, १९९८ अन्वये ठेवण्यात आलेल्या
+                                        नोंदवहीच्या नोंदणी खंड क्रमांक २४ वर दिनांक <span class="marathiNumber"><?php echo $dateOfRegistration_m ?> </span> रोजी माझ्या कडून नोंदणी करण्यात
+                                        आली आहे.
+                                    </p>
                                 </center>
                             </div>
                         </div>
                     </div>
-                    <div class="footerContent col-12 mt-5 pt-4">
+                    <div class="footerContent col-12" style="margin-top: 8px;">
                         <div class="footerBottom row">
                             <div class="footerBottomLeft col-4">
                                 <center>
-                                    <p class="m-0 mb-2">प्रमाणपत्र दिल्याचा दिनांक : <br><span class="marathiNumber"><?php echo makeMarathiDateText($dateOfIssue) ?></span></p>
-                                    <p class="m-0 ">Certificate Issue Date : <br><span class="data"><?php echo $dateOfIssue; ?></span></p>
+                                    <p class="m-0 mb-2">प्रमाणपत्र दिल्याचा दिनांक : <span class="marathiNumber"><?php echo $dateOfIssue_m ?></span></p>
+                                    <p class="m-0 ">Certificate Issue Date : <span><?php echo $dateOfIssue; ?></span></p>
                                 </center>
                             </div>
-                            <div class="footerBottomCenter col-3">
+                            <div class="footerBottomCenter col-4">
                                 <center>
                                     <div class="borderDark d-inline-block p-3">
                                         <span>शिक्का</span><br>
@@ -459,13 +462,13 @@ if (isset($_GET['id'])) {
                                     </div>
                                 </center>
                             </div>
-                            <div class="footerBottomRight footerDetailsPanel col-5">
+                            <div class="footerBottomRight col-4">
                                 <center>
                                     <p>
-                                        निबंधक विवाह नोंदणी तथा Registrar Of Marriage<br>
-                                        ग्रामसेवक / ग्रामविकास अधिकारी<br>
-                                        gramsevak / village development officer<br>
-                                        ग्रामपंचायत grampanchayat<br>
+                                        प्राधिकारी ची सही<br>
+                                        निबंधक जन्म - मृत्यू व विवाह नोंदणी<br>
+                                        Signature / Name of Birth, Death and<br>
+                                        Marriage Registration<br>
                                     </p>
                                 </center>
                             </div>
@@ -478,7 +481,6 @@ if (isset($_GET['id'])) {
                 <script>
                     hideAadhar();
                     print();
-                    dateFix()
 
                     function delqr() {
                         var file = $("#filename").val();
@@ -495,7 +497,6 @@ if (isset($_GET['id'])) {
                     }
 
                     delqr();
-
                 </script>
             <?php } ?>
             <!-- code ends here -->

@@ -6,9 +6,9 @@ $input = $_POST['input'];
 $filePage = $_POST['filePage'];
 $data = null;
 $totalRows = 10;
-if(isset($_POST['nextValue'])){
+if (isset($_POST['nextValue'])) {
     $nextValue = $_POST['nextValue'];
-}else{
+} else {
     $nextValue = 0;
 }
 $limitValue = ($nextValue * $totalRows);
@@ -24,14 +24,13 @@ try {
     $lastRow->execute();
     $lastRow->setFetchMode(PDO::FETCH_ASSOC);
     $lastRow = $lastRow->fetchAll();
-    if(!empty($lastRow[0])){
+    if (!empty($lastRow[0])) {
         $lastRow = $lastRow[0];
-    }else{
+    } else {
         $lastRow = 0;
     }
-    if(empty($lastRow['id'])){
-
-    }else{
+    if (empty($lastRow['id'])) {
+    } else {
         $lastRowno = (int)$lastRow['id'];
     }
 
@@ -39,21 +38,20 @@ try {
     $firstRow->execute();
     $firstRow->setFetchMode(PDO::FETCH_ASSOC);
     $firstRow = $firstRow->fetchAll();
-    if(!empty($firstRow[0])){
+    if (!empty($firstRow[0])) {
         $firstRow = $firstRow[0];
-    }else{
+    } else {
         $firstRow = 0;
     }
-    if(empty($firstRow['id'])){
-
-    }else{
+    if (empty($firstRow['id'])) {
+    } else {
         $firstRowno = (int)$firstRow['id'];
     }
 } catch (PDOException $e) {
     echo "<br>please insert text to search<br>";
 }
 $html = '';
-if($filePage == 'deleteDetails.php'){
+if ($filePage == 'deleteDetails.php') {
     $html .= '<button type="button" value="DELETE" class="btn btn-dark" data-mdb-toggle="modal" data-mdb-target="#exampleModal1">DELETE</button>';
 }
 
@@ -64,32 +62,18 @@ $html .= '
                 <thead>
                     <tr>
                         ';
-                        if($filePage == 'deleteDetails.php'){
-                            $html .= '<th scope="col"></th>';
-                        }
-                        $html .='
+if ($filePage == 'deleteDetails.php') {
+    $html .= '<th scope="col"></th>';
+}
+$html .= '
                         <th scope="col">#</th>
                         <th scope="col">ID</th>
                         <th scope="col">Husband Name</th>
                         <th scope="col">वराचे नाव</th>
                         <th scope="col">Wife Name</th>
                         <th scope="col">वधूचे नाव</th>
-                        <th scope="col">Husband Age</th>
-                        <th scope="col">Wife Age</th>
                         <th scope="col">Husband Aadhar No. </th>
                         <th scope="col">Wife Aadhar No. </th>
-                        <th scope="col">Husband Religion</th>
-                        <th scope="col">वराचा धर्म</th>
-                        <th scope="col">Wife Religion</th>
-                        <th scope="col">वधूचा धर्म</th>
-                        <th scope="col">Husband Nationality</th>
-                        <th scope="col">वराचे राष्ट्रीयत्व</th>
-                        <th scope="col">Wife Nationality</th>
-                        <th scope="col">वधूचे राष्ट्रीयत्व</th>
-                        <th scope="col">Husband Father Name</th>
-                        <th scope="col">वराच्या वडिलांचे नाव</th>
-                        <th scope="col">Wife Father Name</th>
-                        <th scope="col">वधूच्या वडिलांचे नाव</th>
                         <th scope="col">Husband Address</th>
                         <th scope="col">वराचा पत्ता</th>
                         <th scope="col">Wife Address</th>
@@ -111,17 +95,16 @@ if ($data != '') {
         echo "<br><center><h4 class='text-danger'>No Match found</h4></center><br>";
         $nextbtndisable = 2;
         $prevbtndisable = 2;
-        
     } else {
         $sr = 0;
         foreach ($data as $row) {
             $sr++;
-            if($filePage == 'displayDetails.php'){
+            if ($filePage == 'displayDetails.php') {
                 $html .= "<tr  data-mdb-toggle='modal' data-mdb-target='#exampleModalupd' onclick='passData({$row['id']})'>";
-            }else{
+            } else {
                 $html .= "<tr onclick='selectRow(this, {$row['id']})' data-mdb-toggle='modal' data-mdb-target='#exampleModal'>";
             }
-            if($filePage == 'deleteDetails.php'){
+            if ($filePage == 'deleteDetails.php') {
                 $html .= "<td><input type='checkbox' name='checkboxes[]' onclick='changeColor(this)' value='{$row['id']}' id='{$row['id']}'> </th>";
             }
             $tbid = $row['id'];
@@ -132,22 +115,8 @@ if ($data != '') {
                 <td id='husbandName_m$tbid' class='hinditext'>{$row['husbandName_m']}</td>
                 <td id='wifeName$tbid'>{$row['wifeName']}</td>
                 <td id='wifeName_m$tbid' class='hinditext'>{$row['wifeName_m']}</td>
-                <td id='husbandAge$tbid'>{$row['husbandAge']}</td>
-                <td id='wifeAge$tbid'>{$row['wifeAge']}</td>
                 <td id='husbandAadharNo$tbid'>{$row['husbandAadharNo']}</td>
                 <td id='wifeAadharNo$tbid'>{$row['wifeAadharNo']}</td>
-                <td id='husbandReligion$tbid'>{$row['husbandReligion']}</td>
-                <td id='husbandReligion_m$tbid' class='hinditext'>{$row['husbandReligion_m']}</td>
-                <td id='wifeReligion$tbid'>{$row['wifeReligion']}</td>
-                <td id='wifeReligion_m$tbid' class='hinditext'>{$row['wifeReligion_m']}</td>
-                <td id='husbandNationality$tbid'>{$row['husbandNationality']}</td>
-                <td id='husbandNationality_m$tbid' class='hinditext'>{$row['husbandNationality_m']}</td>
-                <td id='wifeNationality$tbid'>{$row['wifeNationality']}</td>
-                <td id='wifeNationality_m$tbid' class='hinditext'>{$row['wifeNationality_m']}</td>
-                <td id='husbandFatherName$tbid'>{$row['husbandFatherName']}</td>
-                <td id='husbandFatherName_m$tbid' class='hinditext'>{$row['husbandFatherName_m']}</td>
-                <td id='wifeFatherName$tbid'>{$row['wifeFatherName']}</td>
-                <td id='wifeFatherName_m$tbid' class='hinditext'>{$row['wifeFatherName_m']}</td>
                 <td id='husbandAddress$tbid'>{$row['husbandAddress']}</td>
                 <td id='husbandAddress_m$tbid' class='hinditext'>{$row['husbandAddress_m']}</td>
                 <td id='wifeAddress$tbid'>{$row['wifeAddress']}</td>
@@ -158,10 +127,10 @@ if ($data != '') {
                 <td id='dateOfRegistration$tbid'>{$row['dateOfRegistration']}</td>
                 <td id='dateOfIssue$tbid'>{$row['dateOfIssue']}</td>
             ";
-            if($lastRowno == $row['id']){
+            if ($lastRowno == $row['id']) {
                 $prevbtndisable = 1;
             }
-            if($firstRowno == $row['id']){
+            if ($firstRowno == $row['id']) {
                 $nextbtndisable = 1;
             }
             $html .= '</tr>';
@@ -173,17 +142,17 @@ if ($data != '') {
             </table>
             </div>
         ';
-        if($filePage == 'deleteDetails.php'){
+        if ($filePage == 'deleteDetails.php') {
             $html .= '<button type="button" value="DELETE" class="btn btn-dark my-3" data-mdb-toggle="modal" data-mdb-target="#exampleModal1">DELETE</button>';
         }
-        
-            // printing table
+
+        // printing table
         echo $html;
     }
 } else {
     echo "<br><center><h4 class='text-danger'>No Match found</h4></center><br>";
     $nextbtndisable = 2;
-    $prevbtndisable = 2;    
+    $prevbtndisable = 2;
 }
-echo '<input value="'.$prevbtndisable.'" name="lastrowno" id="lastrowno" hidden>';
-echo '<input value="'.$nextbtndisable.'" name="firstrowno" id="firstrowno" hidden>';
+echo '<input value="' . $prevbtndisable . '" name="lastrowno" id="lastrowno" hidden>';
+echo '<input value="' . $nextbtndisable . '" name="firstrowno" id="firstrowno" hidden>';

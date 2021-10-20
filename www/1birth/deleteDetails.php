@@ -61,12 +61,9 @@ include '../resources/cssLinks.php';
                         <option value="nameOfFather_m">वडिलांचे नाव </option>
                         <option value="nameOfMother">Mother Name </option>
                         <option value="nameOfMother_m">आईचे नाव </option>
-                        <option value="fatherAadharNo">Father's Aadhaar No. </option>
-                        <option value="motherAadharNo">Mother's Aadhaar No. </option>
                         <option value="addressDuringBirth">Parents Address During Birth </option>
                         <option value="addressDuringBirth_m">मुलाच्या जन्मावेळी पालकांचा पत्ता </option>
                         <option value="permanentAddressOfParents">Parents permenant Address </option>
-                        <option value="dateOfRegistration">Reg. Date </option>
                     </select>
                 </div>
 

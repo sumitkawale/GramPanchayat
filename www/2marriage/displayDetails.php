@@ -46,30 +46,19 @@ include '../resources/cssLinks.php';
 
 				<div class="col-md-3">
 					<select class="form-select" aria-label="Default select example" id="type" name="permanentAddressOfDeceased" style="opacity: 0.8; font-size: 14px; ">
-						<option value="id">ID</option>
-						<option selected value="husbandName">Husband Name </option>
-						<option value="husbandName_m">वराचे नाव </option>
-						<option value="wifeName">Wife Name </option>
-						<option value="wifeName_m">वधूचे नाव </option>
-						<option value="husbandAge">Husband Age </option>
-						<option value="wifeAge">Wife Age </option>
-						<option value="husbandReligion">Husband Religion </option>
-						<option value="husbandReligion_m">वराचा धर्म </option>
-						<option value="wifeReligion">Wife Religion </option>
-						<option value="wifeReligion_m">वधूचा धर्म </option>
-						<option value="husbandNationality">Husband Nationality </option>
-						<option value="wifeNationality">Wife Nationality </option>
-						<option value="husbandFatherName">Husband Father Name </option>
-						<option value="husbandFatherName_m">वराच्या वडिलांचे नाव </option>
-						<option value="wifeFatherName">Wife Father Name </option>
-						<option value="wifeFatherName_m">वधूच्या वडिलांचे नाव </option>
-						<option value="husbandAddress">Husband Address </option>
-						<option value="wifeAddress">Wife Address </option>
-						<option value="wifeAddress_m">वधूचा पत्ता </option>
-						<option value="dateOfMarriage">Date Of Marriage </option>
-						<option value="placeOfMarriage">Place Of Marriage </option>
-						<option value="placeOfMarriage_m">विवाहाचे ठिकाण </option>
-						<option value="dateOfRegistration">Reg. Date </option>
+					<option value="id">ID</option>
+                        <option selected value="husbandName">Husband Name </option>
+                        <option value="husbandName_m">वराचे नाव </option>
+                        <option value="wifeName">Wife Name </option>
+                        <option value="wifeName_m">वधूचे नाव </option>
+                        <option value="husbandAddress">Husband Address </option>
+                        <option value="wifeAadharNo">Wife Aadhar</option>
+                        <option value="husbandAadharNo">Husband Aadhar</option>
+                        <option value="wifeAddress">Wife Address </option>
+                        <option value="wifeAddress_m">वधूचा पत्ता </option>
+                        <option value="dateOfMarriage">Date Of Marriage </option>
+                        <option value="placeOfMarriage">Place Of Marriage </option>
+                        <option value="placeOfMarriage_m">विवाहाचे ठिकाण </option>
 					</select>
 				</div>
 
@@ -136,27 +125,6 @@ include '../resources/cssLinks.php';
 
 						<div class="row mb-4">
 							<div class="col">
-								<div class="form-outline">
-									<input required type="number" class="form-control" id="husbandAge" name="husbandAge" />
-									<label class="form-label" for="husbandAge">Husband Age</label>
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-outline">
-									<input required type="number" class="form-control" id="wifeAge" name="wifeAge" />
-									<label class="form-label" for="wifeAge">Wife Age</label>
-								</div>
-							</div>
-							<div class="col">
-								<div class="input-group">
-									<span class="input-group-text" id="dom">Marriage Date</span>
-									<input required type="date" class="form-control" aria-label="dom" aria-describedby="dom" id="dateOfMarriage" name="dateOfMarriage" />
-								</div>
-							</div>
-						</div>
-
-						<div class="row mb-4">
-							<div class="col">
 								<div class="form-outline aadhar-input">
 									<input required type="number" class="form-control" id="husbandAadharNo" name="husbandAadharNo" />
 									<label class="form-label" data-label="Husband" for="husbandAadharNo">Husband's Aadhar No.</label>
@@ -173,155 +141,33 @@ include '../resources/cssLinks.php';
 						</div>
 
 						<div class="row mb-4">
-							<div class="col">
+							<div class="form-outline col">
 								<div class="form-outline">
-									<input required type="text" class="form-control" id="husbandReligion" name="husbandReligion" />
-									<label class="form-label" for="husbandReligion">Husband Religion</label>
+									<textarea required class="form-control" rows="1" id="husbandAddress" name="husbandAddress"></textarea>
+									<label class="form-label" for="husbandAddress">Husband Address</label>
 								</div>
 							</div>
-							<div class="col">
+							<div class="form-outline col">
 								<div class="form-outline">
-									<input required type="text" class="form-control hinditext" id="husbandReligion_m" name="husbandReligion_m" />
-									<label class="form-label hinditext" for="husbandReligion_m">वराचा धर्म</label>
+									<textarea required class="form-control hinditext" rows="1" id="husbandAddress_m" name="husbandAddress_m"></textarea>
+									<label class="form-label hinditext" for="husbandAddress_m">वराचा पत्ता</label>
 								</div>
 							</div>
 						</div>
-
 						<div class="row mb-4">
-							<div class="col">
+							<div class="form-outline col">
 								<div class="form-outline">
-									<input required type="text" class="form-control" id="wifeReligion" name="wifeReligion" />
-									<label class="form-label" for="wifeReligion">Wife Religion</label>
+									<textarea required class="form-control" rows="1" id="wifeAddress" name="wifeAddress"></textarea>
+									<label class="form-label" for="wifeAddress">Wife Address</label>
 								</div>
 							</div>
-							<div class="col">
+
+							<div class="form-outline col">
 								<div class="form-outline">
-									<input required type="text" class="form-control hinditext" id="wifeReligion_m" name="wifeReligion_m" />
-									<label class="form-label hinditext" for="wifeReligion_m">वधूचा धर्म</label>
+									<textarea required class="form-control hinditext" rows="1" id="wifeAddress_m" name="wifeAddress_m"></textarea>
+									<label class="form-label hinditext" for="wifeAddress_m">वधूचा पत्ता</label>
 								</div>
 							</div>
-						</div>
-
-						<div class="row mb-4">
-							<div class="col">
-								<div class="form-outline">
-									<input required type="text" class="form-control" id="husbandNationality" name="husbandNationality" />
-									<label class="form-label" for="husbandNationality">Husband Nationality</label>
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-outline">
-									<input required type="text" class="form-control hinditext" id="husbandNationality_m" name="husbandNationality_m" />
-									<label class="form-label hinditext" for="husbandNationality_m">वराचे राष्ट्रीयत्व</label>
-								</div>
-							</div>
-						</div>
-
-
-						<div class="row mb-4">
-							<div class="col">
-								<div class="form-outline">
-									<input required type="text" class="form-control" id="wifeNationality" name="wifeNationality" />
-									<label class="form-label" for="wifeNationality">Wife Nationality</label>
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-outline">
-									<input required type="text" class="form-control hinditext" id="wifeNationality_m" name="wifeNationality_m" />
-									<label class="form-label hinditext" for="wifeNationality_m">वधूचे राष्ट्रीयत्व</label>
-								</div>
-							</div>
-						</div>
-
-						<div class="row mb-4">
-							<div class="col">
-								<div class="form-outline">
-									<input required type="text" class="form-control" id="husbandFatherName" name="husbandFatherName" />
-									<label class="form-label" for="husbandFatherName">Husband's Father Name</label>
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-outline">
-									<input required type="text" class="form-control hinditext" id="husbandFatherName_m" name="husbandFatherName_m" />
-									<label class="form-label hinditext" for="husbandFatherName_m">वराच्या वडिलांचे नाव</label>
-								</div>
-							</div>
-						</div>
-
-						<div class="row mb-4">
-							<div class="col">
-								<div class="form-outline">
-									<input required type="text" class="form-control" id="wifeFatherName" name="wifeFatherName" />
-									<label class="form-label" for="wifeFatherName">Wife's Father Name</label>
-								</div>
-							</div>
-							<div class="col">
-								<div class="form-outline">
-									<input required type="text" class="form-control hinditext" id="wifeFatherName_m" name="wifeFatherName_m" />
-									<label class="form-label hinditext" for="wifeFatherName_m">वधूच्या वडिलांचे नाव</label>
-								</div>
-							</div>
-						</div>
-
-
-						<div class="row mb-4">
-							<div class="col">
-								<select required onchange="checkOther(this)" class="form-select" aria-label="Default select example" id="husbandAddress" name="husbandAddress" style="opacity: 0.8; font-size: 14px; ">
-									<option data-warning="PLEASE SELECT ADDRESS OF HUSBAND" selected value="-1">Husband Address</option>
-									<option value="Palasdeo">Palasdeo (पळसदेव)</option>
-									<option value="Bandewadi">Bandewadi (बांडेवाडी)</option>
-									<option value="Kalewadi">Kalewadi (काळेवाडी)</option>
-									<option value="Malewadi">Malewadi (माळेवाडी)</option>
-									<option value="other" id="otherOption">Other</option>
-								</select>
-							</div>
-						</div>
-
-						<div id="display" style="display: none;" class="mb-4">
-							<div class="form-outline mb-4">
-								<textarea class="form-control" rows="1" id="husbandAddressOther" name=""></textarea>
-								<label class="form-label" for="husbandAddressOther">Husband Address</label>
-							</div>
-							<div class="form-outline">
-								<textarea class="form-control hinditext" rows="1" id="husbandAddressOther_m" name=""></textarea>
-								<label class="form-label" for="husbandAddressOther_m">वराचा पत्ता</label>
-							</div>
-						</div>
-						<script>
-							function checkOther(select) {
-								var selValue = select.value;
-								select.style.color = "black";
-
-								if (selValue == "other") {
-									document.getElementById('display').style.display = "block";
-									document.getElementById('husbandAddress').name = "";
-									document.getElementById('husbandAddressOther').name = "husbandAddress";
-									document.getElementById('husbandAddressOther_m').name = "husbandAddress_m";
-									document.getElementById('husbandAddress').removeAttribute('required');
-									document.getElementById('husbandAddressOther').setAttribute('required', '');
-									document.getElementById('husbandAddressOther_m').setAttribute('required', '');
-									document.getElementById('otherOption').innerHTML = "Other (Enter the Address Below)";
-									document.getElementById('husbandAddressOther').focus();
-								} else {
-									document.getElementById('display').style.display = "none";
-									document.getElementById('husbandAddress').name = "husbandAddress";
-									document.getElementById('husbandAddressOther').name = "";
-									document.getElementById('husbandAddressOther_m').name = "";
-									document.getElementById('husbandAddress').setAttribute('required', '');
-									document.getElementById('husbandAddressOther').removeAttribute('required');
-									document.getElementById('husbandAddressOther_m').removeAttribute('required');
-									document.getElementById('otherOption').innerHTML = "Other";
-								}
-							}
-						</script>
-						<div class="form-outline mb-4">
-							<textarea required class="form-control" rows="1" id="wifeAddress" name="wifeAddress"></textarea>
-							<label class="form-label" for="wifeAddress">Wife Address</label>
-						</div>
-
-						<div class="form-outline mb-4">
-							<textarea required class="form-control hinditext" rows="1" id="wifeAddress_m" name="wifeAddress_m"></textarea>
-							<label class="form-label hinditext" for="wifeAddress_m">वधूचा पत्ता</label>
 						</div>
 
 						<div class="row mb-4">
@@ -340,7 +186,13 @@ include '../resources/cssLinks.php';
 						</div>
 
 						<div class="row mb-4">
-							<div class="col-6">
+							<div class="col">
+								<div class="input-group">
+									<span class="input-group-text" id="dom">Marriage Date</span>
+									<input required type="date" class="form-control" aria-label="dom" aria-describedby="dom" id="dateOfMarriage" name="dateOfMarriage" />
+								</div>
+							</div>
+							<div class="col">
 								<div class="input-group">
 									<span class="input-group-text" style="opacity: 0.8; font-size: 14px; " id="dateOfReg">Registration Date</span>
 									<input type="date" class="form-control" aria-label="dateOfReg" aria-describedby="dateOfReg" id="regdate" name="dateOfReg" />
@@ -360,7 +212,6 @@ include '../resources/cssLinks.php';
 								<button type="submit" class="btn btn-block btn-danger" name="update">Update</button>
 							</div>
 						</div>
-
 					</form>
 				</div>
 			</div>
@@ -385,55 +236,18 @@ require "../common.php";
 		document.getElementById('husbandName_m').value = document.getElementById('husbandName_m' + id).innerHTML;
 		document.getElementById('wifeName').value = document.getElementById('wifeName' + id).innerHTML;
 		document.getElementById('wifeName_m').value = document.getElementById('wifeName_m' + id).innerHTML;
-		document.getElementById('husbandAge').value = document.getElementById('husbandAge' + id).innerHTML;
-		document.getElementById('wifeAge').value = document.getElementById('wifeAge' + id).innerHTML;
 		document.getElementById('husbandAadharNo').value = document.getElementById('husbandAadharNo' + id).innerHTML;
 		document.getElementById('wifeAadharNo').value = document.getElementById('wifeAadharNo' + id).innerHTML;
-		document.getElementById('husbandReligion').value = document.getElementById('husbandReligion' + id).innerHTML;
-		document.getElementById('husbandReligion_m').value = document.getElementById('husbandReligion_m' + id).innerHTML;
-		document.getElementById('wifeReligion').value = document.getElementById('wifeReligion' + id).innerHTML;
-		document.getElementById('wifeReligion_m').value = document.getElementById('wifeReligion_m' + id).innerHTML;
-		document.getElementById('husbandNationality').value = document.getElementById('husbandNationality' + id).innerHTML;
-		document.getElementById('husbandNationality_m').value = document.getElementById('husbandNationality_m' + id).innerHTML;
-		document.getElementById('wifeNationality').value = document.getElementById('wifeNationality' + id).innerHTML;
-		document.getElementById('wifeNationality_m').value = document.getElementById('wifeNationality_m' + id).innerHTML;
-		document.getElementById('husbandFatherName').value = document.getElementById('husbandFatherName' + id).innerHTML;
-		document.getElementById('husbandFatherName_m').value = document.getElementById('husbandFatherName_m' + id).innerHTML;
-		document.getElementById('wifeFatherName').value = document.getElementById('wifeFatherName' + id).innerHTML;
-		document.getElementById('wifeFatherName_m').value = document.getElementById('wifeFatherName_m' + id).innerHTML;
-		var birthAddress = document.getElementById('husbandAddress' + id).innerHTML;
-		if (birthAddress == 'Palasdeo' || birthAddress == 'Kalewadi' || birthAddress == 'Malewadi' || birthAddress == 'Bandewadi') {
-			document.getElementById('husbandAddress').value = birthAddress;
-			document.getElementById('display').style.display = "none";
-			document.getElementById('husbandAddress').name = "husbandAddress";
-			document.getElementById('husbandAddressOther').name = "";
-			document.getElementById('husbandAddressOther_m').name = "";
-			document.getElementById('husbandAddress').setAttribute('required', '');
-			document.getElementById('husbandAddressOther').removeAttribute('required');
-			document.getElementById('husbandAddressOther_m').removeAttribute('required');
-			document.getElementById('otherOption').innerHTML = "Other";
-		} else {
-			document.getElementById('husbandAddress').value = 'other';
-			document.getElementById('husbandAddressOther').value = birthAddress;
-			document.getElementById('husbandAddressOther_m').value = document.getElementById('husbandAddress_m' + id).innerHTML;;
-			document.getElementById('display').style.display = "block";
-			document.getElementById('husbandAddress').name = "";
-			document.getElementById('husbandAddressOther').name = "husbandAddress";
-			document.getElementById('husbandAddressOther_m').name = "husbandAddress_m";
-			document.getElementById('husbandAddress').removeAttribute('required');
-			document.getElementById('husbandAddressOther').setAttribute('required', '');
-			document.getElementById('husbandAddressOther_m').setAttribute('required', '');
-			document.getElementById('otherOption').innerHTML = "Other (Enter the Address Below)";
-			document.getElementById('husbandAddressOther').focus();
-		}
+
+		document.getElementById('husbandAddress').value = document.getElementById('husbandAddress' + id).innerHTML;
+		document.getElementById('husbandAddress_m').value = document.getElementById('husbandAddress_m' + id).innerHTML;
+
 		document.getElementById('wifeAddress').value = document.getElementById('wifeAddress' + id).innerHTML;
 		document.getElementById('wifeAddress_m').value = document.getElementById('wifeAddress_m' + id).innerHTML;
 		document.getElementById('dateOfMarriage').value = document.getElementById('dateOfMarriage' + id).innerHTML;
 		document.getElementById('placeOfMarriage').value = document.getElementById('placeOfMarriage' + id).innerHTML;
 		document.getElementById('placeOfMarriage_m').value = document.getElementById('placeOfMarriage_m' + id).innerHTML;
 		document.getElementById('regdate').value = document.getElementById('dateOfRegistration' + id).innerHTML;
-
-		//document.getElementById('').value = document.getElementById('' + id).innerHTML;
 	}
 </script>
 <script src="../script/allCommonScripts.js"></script>

@@ -73,19 +73,13 @@ $html .= '
                         <th scope="col">Name</th>
                         <th scope="col">नाव</th>
                         <th scope="col">Sex</th>
-                        <th scope="col">Aadhaar No.</th>
-                        <th scope="col">Age</th>
+                        <th scope="col">Aadhaar number of deceased</th>
                         <th scope="col">Death Date</th>
-                        <th scope="col">Death Place</th>
                         <th scope="col">मृत्यू ठिकाण</th>
-                        <th scope="col">Husband/Father Name</th>
+                        <th scope="col">Death Place</th>
                         <th scope="col">वडील/पतीचे नाव</th>
-                        <th scope="col">Husband/Father Aadhaar No. </th>
-                        <th scope="col">Father Name</th>
-                        <th scope="col">वडिलांचे नाव</th>
-                        <th scope="col">Mother Name</th>
+                        <th scope="col">Husband/Father Name</th>
                         <th scope="col">आईचे नाव</th>
-                        <th scope="col">Father\'s Aadhaar No.</th>
                         <th scope="col">Mother\'s Aadhaar No.</th>
                         <th scope="col">Address During Death</th>
                         <th scope="col">मृत्यूवेळी मृत व्यक्तीचा पत्ता</th>
@@ -126,19 +120,13 @@ if ($data != '') {
                 <td id='name_m$tbid' class='hinditext'>{$row['name_m']}</td>
                 <td id='sex$tbid'>{$row['sex']}</td>
                 <td id='aadharNo$tbid'>{$row['aadharNo']}</td>
-                <td id='age$tbid'>{$row['age']}</td>
                 <td id='dateOfDeath$tbid'>{$row['dateOfDeath']}</td>
-                <td id='placeOfDeath$tbid'>{$row['placeOfDeath']}</td>
                 <td id='placeOfDeath_m$tbid' class='hinditext'>{$row['placeOfDeath_m']}</td>
-                <td id='nameOfHusband_Wife$tbid'>{$row['nameOfHusband_Wife']}</td>
+                <td id='placeOfDeath$tbid'>{$row['placeOfDeath']}</td>
                 <td id='nameOfHusband_Wife_m$tbid' class='hinditext'>{$row['nameOfHusband_Wife_m']}</td>
-                <td id='aadhaarOfHusband_Wife$tbid'>{$row['aadhaarOfHusband_Wife']}</td>
-                <td id='nameOfFather$tbid'>{$row['nameOfFather']}</td>
-                <td id='nameOfFather_m$tbid' class='hinditext'>{$row['nameOfFather_m']}</td>
-                <td id='nameOfMother$tbid'>{$row['nameOfMother']}</td>
+                <td id='nameOfHusband_Wife$tbid'>{$row['nameOfHusband_Wife']}</td>
                 <td id='nameOfMother_m$tbid' class='hinditext'>{$row['nameOfMother_m']}</td>
-                <td id='fatherAadhaar$tbid'>{$row['fatherAadhaar']}</td>
-                <td id='motherAadhaar$tbid'>{$row['motherAadhaar']}</td>
+                <td id='nameOfMother$tbid'>{$row['nameOfMother']}</td>
                 <td id='addressDuringDeath$tbid'>{$row['addressDuringDeath']}</td>
                 <td id='addressDuringDeath_m$tbid' class='hinditext'>{$row['addressDuringDeath_m']}</td>
                 <td id='permanentAddressOfDeceased$tbid'>{$row['permanentAddressOfDeceased']}</td>
